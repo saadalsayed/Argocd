@@ -1,0 +1,18 @@
+deployment:
+  name: app
+  kind: Deployment
+  replicas: 2
+  container:
+     name: helm-app
+     image: nginx 
+     containerPort: 80
+
+service:
+
+
+
+namespace: 
+ - data: ns1
+ - data: ns2
+ - data: ns3
+  

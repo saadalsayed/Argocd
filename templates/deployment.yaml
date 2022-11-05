@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: {{ .Values.deployment.kind }}
+metadata:
+  labels:
+   app: app
+  name: {{ .Release.Name}}-rana
+{{- with .Values.deployment}}
+spec:
+  replicas: {{ .replica}}
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: app
+    spec:
+      containers:
+      - image: {{ .container.image }}
+        name: {{ .container.name }}
+        ports: 
+         - containerPort: {{ .container.containerPort }}
+{{- end }}

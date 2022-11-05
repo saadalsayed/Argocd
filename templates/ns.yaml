@@ -1,0 +1,8 @@
+{{- range $loop := .Values.namespace }}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: {{ $loop.data }}
+{{- end }}
